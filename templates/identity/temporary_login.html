@@ -1,15 +1,14 @@
+{% extends 'identity/base.html' %}
+
+
+{% block content %}
 <div class="container">
-    <h1 class="title">You are about to create a temporary user!</h1>
-    <p>The demo app you are about to load requires you to create a Django user instance to work properly.</p>
-    <p>
-        You will not be required to enter any personal information.
-        The button below will 
-        <a href="https://github.com/RileyMathews/django-demos/blob/master/identity/views.py">create a temporary user instance</a>
-        that will be 
-        <a href="https://github.com/RileyMathews/django-demos/blob/master/identity/apps.py"> deleted when you logout. </a>
-    </p>
+    <h1 class="title">Welcome to Gamestone!</h1>
+    <p>We do not yet have full authentication features, you can still try out the app with a temporary user though.</p>
+    <p>Click the button below to create a temporary user that will be deleted when you logout.</p>
     <form class="login" method="POST">
         {% csrf_token %}
         <button class="button is-primary" type="submit">Create a temporary user.</button>
     </form>
 </div>
+{% endblock content %}
