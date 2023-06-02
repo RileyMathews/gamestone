@@ -1,0 +1,15 @@
+<div class="container">
+    <h1 class="title">You are about to create a temporary user!</h1>
+    <p>The demo app you are about to load requires you to create a Django user instance to work properly.</p>
+    <p>
+        You will not be required to enter any personal information.
+        The button below will 
+        <a href="https://github.com/RileyMathews/django-demos/blob/master/identity/views.py">create a temporary user instance</a>
+        that will be 
+        <a href="https://github.com/RileyMathews/django-demos/blob/master/identity/apps.py"> deleted when you logout. </a>
+    </p>
+    <form class="login" method="POST">
+        {% csrf_token %}
+        <button class="button is-primary" type="submit">Create a temporary user.</button>
+    </form>
+</div>
