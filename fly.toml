@@ -1,0 +1,32 @@
+# fly.toml app configuration file generated for gamestone on 2023-06-02T16:11:15-05:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "gamestone"
+primary_region = "iad"
+console_command = "poetry run python manage.py shell"
+
+[deploy]
+  release_command = "poetry run python manage.py migrate"
+
+[build]
+  dockerfile = "Dockerfile"
+
+  [build.args]
+  GAMESTONE_API_URL = "https://gamestone.fly.dev/api/"
+
+[env]
+  PORT = "8000"
+  DJANGO_SETTINGS_MODULE = "config.settings.prod"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[statics]]
+  guest_path = "/code/static"
+  url_prefix = "/static/"

@@ -39,7 +39,7 @@ RUN poetry install
 COPY --chown=docker:docker . .
 RUN npm i
 
-RUN GAMESTONE_API_URL=$GAMESTONE_API_URL npm run build --workspaces
+RUN GAMESTONE_API_URL=$GAMESTONE_API_URL npm run build
 RUN poetry run python manage.py collectstatic --no-input --settings config.settings.collectstatic
 
 FROM build as release
